@@ -1,0 +1,539 @@
+body {
+	background:$light-gray;
+	overflow-x: hidden;
+}
+.container-fluid {
+	padding-left: 35px;
+	padding-right: 35px;
+    @media screen and (max-width: 768px) {
+		padding-left: 15px;
+		padding-right: 15px;
+
+	    > section.panel:first-child:not(.panel__halves),
+	    > section.panel.panel__halves:first-child > .panel--half:first-child {
+			height: calc(100vh - 119px);
+		    min-height: calc(100vh - 119px);
+	    }
+
+    }
+}
+#splash {
+	display: flex;
+	position: fixed;
+	width: 100%;
+	height: 100vh;
+	background:white;
+	z-index: 999;
+	top: 0;
+	left: 0;
+    justify-content: center;
+}
+
+
+.please-scroll {
+	position: fixed;
+	bottom: 1rem;
+	left: 50%;
+	transform: translateX(-50%);
+	z-index: 9;
+	img, svg {
+		width: 14px;
+	}
+	&.please-scroll__white {
+		svg path {
+			fill: #fff;
+		}
+	}
+    @media screen and (max-width: 768px) {
+		bottom: 1.5rem;
+		svg path {
+			fill: #fff;
+		}
+
+    }
+}
+
+//HAMBURGUER MENU
+.hamburguer {
+	$ratio: 0.75;
+	display: block;
+	width: 25px / $ratio;
+	height: 15px / $ratio;
+	position: fixed;
+	top: 25px;
+	left: 15px;
+	transform: scale($ratio);
+	transition: all 0.15s cubic-bezier(0.46, 0.12, 0.24, 1.7);
+	span{
+		position: absolute;
+		display: block;
+		width: 100%;
+		height: 2px / $ratio;
+		background:$black;
+		transition: all 0.15s ease-in-out;
+	}
+	span:nth-child(2){
+		top: (6px / $ratio);
+	}
+	span:nth-child(3){
+		top: (12px / $ratio);
+	}
+	&:hover {
+		transform: scale(1);
+		/*span:nth-child(2){
+			top: 8px;
+		}
+		span:nth-child(3){
+			top: 16px;
+		}*/
+	}
+}
+
+.lower-stripe {
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	height: 15px;
+	z-index: 90;
+}
+.top {
+	position: fixed;
+	background: white;
+	z-index: 90;
+	width: 100%;
+	top: 0;
+	left: 0;
+}
+.bottom {
+	position: fixed;
+	background: white;
+	z-index: 90;
+	width: 100%;
+	bottom: 0;
+	left: 0;
+	a {
+		color:$black;
+	}
+    @media screen and (max-width: 768px) {
+		display: none;
+    }
+}
+.right {
+	background: white;
+	position: fixed;
+	top: 0;
+	right: 8px;
+	height: 100vh;
+    z-index: 80;
+	.scroll-nav {
+		position: absolute;
+		top: 50%;
+		transform: translateY(-50%);
+		right: 8px;
+	}
+    @media screen and (max-width: 768px) {
+		display: none;
+    }
+}
+.left {
+	background: white;
+	position: fixed;
+	top: 0;
+	left: 0;
+	height: 100vh;
+    z-index: 80;
+	.scroll-sign {
+		width: 100px;
+		position: absolute;
+		top: 50%;
+		transform: translateY(-50%) rotate(90deg);
+	    left: -28px;
+	    display: flex;
+    	align-items: center;
+    	font-weight: 300;
+		font-family: "nimbus-sans",sans-serif;
+    	span {
+    		margin: 0 10px;
+    	}
+		a {
+			display: inline-block;
+		    width: 15px;
+		    height: 20px;
+		    position: relative;
+			img, svg {
+				transition: all 0.2s ease-in-out;
+			    height: 12px;
+			    top: 50%;
+			    transform: translateY(-50%);
+			    position: absolute;
+				path {
+					fill: $black;
+				}
+			}
+			&:hover {
+				img, svg {
+					height: 14px;
+				}
+			}
+		}
+	}
+    @media screen and (max-width: 768px) {
+		display: none;
+    }
+}
+
+.pagination {
+    color: white;
+    text-align: center;
+    > a {
+    	color:white;
+    	text-decoration: none;
+    	position: relative;
+	    display: inline-block;
+	    margin: 0 10px;
+		img, svg {
+		    width: 15px;
+		    transition: all 0.3s;
+		    position: absolute;
+		    top: 50%;
+		    transform: translateY(-50%);
+    	}
+    	&:hover {
+		img, svg {
+    			width: 17px
+    		}
+    	}
+    	&[direction="left"] {
+    		text-align: right;
+			padding-left: 2rem;
+		img, svg {
+    			left: 0;
+    		}
+    	}
+    	&[direction="right"] {
+    		text-align: left;
+			padding-right: 2rem;
+		img, svg {
+    			right: 0;
+    		}
+    	}
+    }
+    p {
+	    display: inline-block;
+	    text-align: center;
+	    border-radius: 50px;
+	  	padding: 10px 18px;
+
+    }
+    &.pagination__dark-bg {
+	    p {
+	    	background: rgba(0, 0, 0, 0.18);
+	    }
+    }
+	&.pagination__blog {
+		display: flex;
+		.pagination--share {
+			flex: 1;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			font-family: "nimbus-sans", sans-serif;
+			font-weight: 300;
+			#share {
+				display: flex;
+			}
+			a {
+				display: inline-block;
+				width: 40px;
+				svg {
+					width: 26px;
+				}
+				&:hover {
+					svg path {
+						fill: $primary;
+					}
+				}
+			}
+		}
+		> a {
+			display: flex;
+    		align-items: center;
+		}
+	}
+	&.pagination__slider {
+		position: absolute;
+		bottom: 60px;
+		left: 50%;
+		transform: translateX(-50%);
+	}
+    &.pagination__dark {
+		color: $black;
+		a {
+			color: $black;
+		}
+		svg path {
+			fill: $black;
+		}
+    }
+}
+
+
+//Header with menu
+$transition: all .5s ease-in-out;
+.main-navigation {
+	transition: $transition;
+	transition-delay: 0.2s;
+	&.main-navigation__short {
+		.svg.logo {
+			transition: $transition;
+			transition-delay: 0.2s;
+    		margin-bottom: -29px;
+			#XMLID_30_ {
+				opacity: 0;
+				transition: $transition;
+			}
+		}
+		.sub-nav {
+			a {
+				padding: 0.625rem;
+			}
+		}
+	}
+	.svg.logo {
+		transition: $transition;
+		transition-delay: 0.2s;
+		width: 170px;
+		path {
+			transition: $transition;
+			transition-delay: 0.2s;
+			fill: $black;
+		}
+		#XMLID_30_ {
+			opacity: 1;
+			transition: $transition;
+			transition-delay: 0.6s;
+		}
+	}
+	.right-buttons {
+	    position: absolute;
+	    top: 17px;
+	    right: 22px;
+		transition: all .12s ease-in .8s;
+	    @media screen and (max-width: 768px) {
+			right: -6px;
+	    }
+	}
+	h4 {
+		color: $dark-gray;
+	}
+	.social-icon {
+		transition: all 0.3s ease-in-out;
+		path {
+			fill: white;
+		}
+		&:hover {
+			path {
+				fill: $primary;
+			}
+		}
+	}
+	&.active {
+		background: $black;
+		transition: $transition;
+		transition-delay: 0s;
+
+		nav.extended-nav{
+			transition: $transition;
+			transition-delay: 0.2s;
+			max-height: 600px;
+			@media screen and (max-width: 768px) {
+			    max-height: calc(100vh - 92px);
+			}
+		}
+		.svg.logo {
+			transition: $transition;
+			transition-delay: 0.2s;
+			path {
+				transition: $transition;
+				transition-delay: 0.2s;
+				fill: white;
+			}
+		}
+		.hamburguer {
+			span {
+				background:$primary;
+			}
+			span:nth-child(1) {
+				opacity: 0;
+			}
+			span:nth-child(2) {
+    			transform: rotateZ(45deg);
+				top: 7px;
+			}
+			span:nth-child(3) {
+    			transform: rotateZ(-45deg);
+				top: 7px;
+			}
+		}
+		.right-buttons {
+			@media screen and (max-width: 768px) {
+				transition: all .12s;
+				opacity: 0;
+			}
+		}
+
+	}
+	nav.extended-nav {
+		transition: all .3s ease-in-out 0s;
+		max-height: 0;
+		overflow: hidden;
+		@media screen and (max-width: 768px) {
+		    overflow-y: scroll;
+		}
+		@media (min-width: 768px) {
+			text-align: left;
+		}
+		ul {
+			list-style: none;
+			padding: 0;
+			li {
+				margin-bottom: 10px;
+			}
+			a {
+				color:white;
+				text-decoration: none;
+				transition: all 0.3s ease-in-out;
+				&:hover {
+					color:$primary;
+				}
+			}
+		}
+		#newsletterForm input[type="text"] {
+			background:lighten($black, 10%);
+			color: white;
+		    border-bottom: 2px solid transparent;
+		    transition: all 0.3s ease-in-out;
+		    &:focus {
+		    	outline: none;
+		    	border-bottom-color: white;
+		    }
+		}
+		#searchForm {
+			display: flex;
+			input[type="text"] {
+				background: $black;
+				color: white;
+			}
+		}
+	}
+
+}
+
+.sub-nav {
+	ul {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+	}
+	li {
+		display: inline-block;
+		&.current-menu-item {
+			a:after {
+				width: 100%;
+			}
+		}
+	}
+	a {
+		transition: $transition;
+		padding: 1.25rem;
+		color:$black;
+		display: inline-block;
+		position: relative;
+		text-align: center;
+		&:hover {
+			&:after {
+				width: 100%;
+			}
+		}
+		&:after {
+			transition: all 0.3s ease-in-out;
+			content: '';
+			display: block;
+		    position: absolute;
+		    width: 0;
+		    height: 7px;
+		    background: $primary;
+		    left:0;
+		    bottom: 0;
+		}
+	}
+    @media screen and (max-width: 768px) {
+		display: none;
+    }
+}
+
+//The "Scroll nav(igation)"
+// Are the rounded things in the right that can be
+// used to scroll to one point or another, one
+// scene from another.
+.scroll-nav ul{
+	padding: 0;
+	li{
+		list-style: none;
+		margin-bottom: 10px;
+		&.active a{
+			background: $black;
+		}
+		a {
+			transition: all 0.3s ease-in-out;
+			width: 7px;
+			height: 7px;
+			background:lighten($black, 50%);
+			border-radius: 20px;
+			display: block;
+			position: relative;
+			color: $black;
+			font-family: "acumin-pro-extra-condensed", sans-serif;
+			&:hover {
+				span {
+					opacity: 1;
+				}
+			}
+			span {
+				font-size: 1.3rem;
+				transition: all 0.3s ease-in-out;
+				opacity: 0;
+				position: absolute;
+			    top: -0.6rem;
+			    right: 0;
+			    text-align: right;
+			    display: block;
+			    border-radius: 50px;
+				white-space: nowrap;
+			    padding: 3px 20px 3px 10px;
+			}
+		}
+	}
+}
+
+
+
+.blog-post {
+    font-family: "nimbus-sans",sans-serif;
+    font-size: 1rem;
+    line-height: 1.4rem;
+    font-weight: 300;
+	img {
+		width: 100%;
+		margin: 60px 0;
+	}
+	h2 {
+		text-transform: uppercase;
+		text-align: center;
+	}
+	blockquote {
+		text-align: center;
+		margin: 80px 20px;
+	}
+}

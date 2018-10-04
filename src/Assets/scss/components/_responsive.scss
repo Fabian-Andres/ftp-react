@@ -1,0 +1,205 @@
+@media screen and (max-width: 991px){
+    .sidebar-collapse{
+        @include navbar-collapse();
+
+        &.menu-on-left{
+            .navbar-collapse{
+                right: auto;
+                left: 0;
+                @include transform-translate-x(-300px);
+            }
+        }
+
+        .nav-open &{
+            .navbar-collapse{
+                @include transform-translate-x(0px);
+            }
+
+            .wrapper{
+                @include transform-translate-x(-150px);
+            }
+
+            .navbar-translate{
+                @include transform-translate-x(-300px);
+            }
+
+            &.menu-on-left{
+                .navbar-collapse{
+                    @include transform-translate-x(0px);
+                }
+
+                .navbar-translate{
+                    @include transform-translate-x(300px);
+                }
+
+                .wrapper{
+                    @include transform-translate-x(150px);
+                }
+
+                #bodyClick{
+                    right: auto;
+                    left: 300px;
+                }
+            }
+        }
+    }
+
+    .navbar-nav .nav-link i.fab,
+    .navbar-nav .nav-link i.now-ui-icons {
+      opacity: .5;
+    }
+
+    .bootstrap-collapse{
+        .navbar .navbar-collapse{
+            background: none !important;
+        }
+        @include navbar-responsive();
+    }
+
+    .section {
+      padding: 5% 0;
+    }
+
+
+    .card-title {
+      text-align: center;
+    }
+
+    .button-dropdown{
+        display: none;
+    }
+
+
+    .navbar-nav{
+        .nav-link{
+            i.fa,
+            i.now-ui-icons{
+                opacity: .5;
+            }
+            > i.fas,
+            &::after {
+              display: none !important;
+            }
+        }
+    }
+
+}
+
+@media screen and (min-width: 992px){
+  .navbar-collapse:not(.has-image) {
+    background: transparent !important;
+}
+    .burger-menu{
+        @include navbar-collapse();
+
+        .nav-open & .navbar-collapse{
+            @include transform-translate-x(0px);
+        }
+
+        .navbar-collapse {
+            display: block !important;
+
+            .navbar-nav {
+                margin-top: 53px;
+                height: 100%;
+                z-index: 2;
+                position: relative;
+                display: -webkit-box;
+                display: -webkit-flex;
+                display: -ms-flexbox;
+                display: flex;
+                -webkit-box-orient: vertical;
+                -webkit-box-direction: normal;
+                -webkit-flex-direction: column;
+                -ms-flex-direction: column;
+                flex-direction: column;
+
+                .nav-item{
+                    margin: 0;
+                }
+            }
+        }
+
+        &.menu-on-left .navbar-collapse{
+            right: auto;
+            left: 0;
+            @include transform-translate-x(-300px);
+        }
+
+        [class*="navbar-expand-"]{
+            .navbar-nav .dropdown-menu{
+                position: static;
+                float: none;
+            }
+
+            .navbar-toggler{
+                display: inline-block;
+            }
+        }
+
+        .section-navbars .navbar-collapse{
+            display: none !important;
+        }
+
+        .nav-open &{
+            &.menu-on-left .navbar .navbar-translate{
+                @include transform-translate-x(300px);
+            }
+
+            .navbar .navbar-translate{
+                @include transform-translate-x(-300px);
+            }
+
+            &.menu-on-left .navbar-collapse{
+                @include transform-translate-x(0px);
+            }
+
+            &.menu-on-left #bodyClick{
+                right: auto;
+                left: 300px;
+            }
+        }
+
+        &.menu-on-left .navbar-brand{
+            float: right;
+            margin-right: 0;
+            margin-left: 1rem;
+        }
+    }
+
+    .navbar-nav{
+        .nav-link{
+
+            &.btn:not(.btn-sm){
+                margin: 0;
+            }
+        }
+
+        .nav-item:not(:last-child){
+            margin-right: 5px;
+        }
+
+    }
+
+
+    .dropdown-menu .dropdown-item{
+        color: inherit;
+        display: flex;
+        align-items: center;
+
+        i {
+          margin-right: 5px;
+          position: relative;
+          top: 1px;
+        }
+    }
+
+}
+
+@media screen and (max-width: 576px){
+    .navbar[class*='navbar-expand-'] .container{
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+}

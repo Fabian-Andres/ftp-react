@@ -1,0 +1,30 @@
+/*!
+
+ =========================================================
+ * Imports
+ =========================================================
+
+ */
+
+@import 'components/variables';
+@import 'components/mixins';
+
+// Core CSS
+@import "components/buttons";
+@import "components/inputs";
+@import "components/typography";
+
+// components
+@import "components/nucleo-outline";
+
+@import "components/navbar";
+@import "components/dropdown";
+
+// Cards
+@import "components/cards";
+
+// Sections
+@import "components/sections";
+
+
+@import "components/responsive";
