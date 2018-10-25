@@ -5,7 +5,7 @@ import { NavLink } from 'react-router-dom';
 
 // Assets
 import './Header.scss';
-import logo from './../../../Assets/images/logo.svg';
+import logo from './../../../Assets/images/logo-ddb.svg';
 
 const items = [
   {
@@ -13,8 +13,8 @@ const items = [
     "link": "/"
   },
   {
-    "title": "About",
-    "link": "/about-us"
+    "title": "Proyects",
+    "link": "/proyects"
   }
 ];
 
@@ -56,7 +56,7 @@ class Header extends React.Component {
   render() {
     return (
       <header>
-        <Container>
+        <Container fluid>
           <Row>
             <nav className="navbar navbar-expand-lg navbar-light w-100">
               <NavLink className="navbar-brand mr-auto" to="/">

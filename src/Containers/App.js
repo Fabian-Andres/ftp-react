@@ -5,10 +5,6 @@ import PropTypes from 'prop-types';
 // Components
 import Header from './../Components/Partials/Header';
 import Content from './../Components/Modules/Content';
-import Footer from './../Components/Partials/Footer';
-
-// Assets
-import './App.scss'
 
 class App extends React.Component {
 
@@ -23,7 +19,6 @@ class App extends React.Component {
       <div className="App">
         <Header />
         <Content body={children} />
-        <Footer />
       </div>
     );
   }
