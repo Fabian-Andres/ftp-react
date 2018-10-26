@@ -3,8 +3,9 @@ import React from 'react';
 import { Container, Row, Col } from 'reactstrap';
 
 // Components
-import Gallery from './Gallery'
-import BannerProfile from './BannerProfile'
+import Gallery from './Gallery';
+import BannerProfile from './BannerProfile';
+import Categories from './Categories';
 
 // Assets 
 import './Proyects.scss';
@@ -12,45 +13,55 @@ import './Proyects.scss';
 const dataGallery = [
   {
     "name": "Lorem",
-    "src": "https://picsum.photos/300/300/?image=633"
+    "src": "https://picsum.photos/300/250/?image=633",
+    "grid": 1
   },
   {
     "name": "Lorem2",
-    "src": "https://picsum.photos/305/400/?image=634"
+    "src": "https://picsum.photos/300/250/?image=634",
+    "grid": 1
   },
   {
     "name": "Lorem3",
-    "src": "https://picsum.photos/300/300/?image=635"
+    "src": "https://picsum.photos/300/250/?image=635",
+    "grid": 1
   },
   {
     "name": "Lorem4",
-    "src": "https://picsum.photos/1000/500/?image=500"
+    "src": "https://picsum.photos/1000/250/?image=500",
+    "grid": 2
   },
   {
     "name": "Lorem5",
-    "src": "https://picsum.photos/1000/500/?image=520"
+    "src": "https://picsum.photos/1000/250/?image=520",
+    "grid": 2
   },
   {
     "name": "Lorem",
-    "src": "https://picsum.photos/300/300/?image=633"
+    "src": "https://picsum.photos/300/250/?image=633",
+    "grid": 1
   },
-  {
-    "name": "Lorem2",
-    "src": "https://picsum.photos/305/400/?image=634"
-  },
+  
   {
     "name": "Lorem3",
-    "src": "https://picsum.photos/300/300/?image=635"
+    "src": "https://picsum.photos/300/250/?image=635",
+    "grid": 1
   },
   {
     "name": "Lorem4",
-    "src": "https://picsum.photos/1000/500/?image=500"
+    "src": "https://picsum.photos/1000/250/?image=500",
+    "grid": 2
   },
   {
-    "name": "Lorem5",
-    "src": "https://picsum.photos/1000/500/?image=520"
+    "name": "Lorem",
+    "src": "https://picsum.photos/300/250/?image=635",
+    "grid": 1
   },
-  
+  {
+    "name": "Lorem2",
+    "src": "https://picsum.photos/300/250/?image=634",
+    "grid": 1
+  }
 ];
 
 const dataBanner = [
@@ -68,7 +79,7 @@ const Proyects = () => (
       <Col md="3" className="pt-4 bg-bloq">
         <div className="bloq">
           <h1 className="h4">Campañas</h1>
-          <p>Hello!</p>
+          <Categories/>
         </div>
       </Col>
       <Col md="9" xs="12" sm="12">

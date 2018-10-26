@@ -1,67 +1,56 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+// Dependences
+import * as React from 'react';
 
-import { connect } from "react-redux";
+// Assets 
+// import './Categories.scss'
 
-import { updateFilters } from '../../store/actions/filterActions';
-
-import Category from '../Actions/Category';
-
-const sublevel_id = [
-  'Casual Shirts',
-  'Formal Shirts',
-  'Blazers',
-  'Polos',
+const items = [
+  {
+    "title": "Dr Pepper",
+    "link": "/"
+  },
+  {
+    "title": "Coca-cola Zero",
+    "link": "/"
+  },
+  {
+    "title": "Coke Zero Sugar 400",
+    "link": "/"
+  },
+  {
+    "title": "Cherry Coke",
+    "link": "/"
+  }
 ];
+ 
+class Categories extends React.Component {
 
-class Categories extends Component {
-
-  componentWillMount() {
-    this.selectedCategoryes = new Set();
-  }
-
-  toggleCategory = (label) => {
-    if (this.selectedCategoryes.has(label)) {
-      this.selectedCategoryes.delete(label);
-  } else {
-      this.selectedCategoryes.add(label);
+    createNavItem = (item) => (
+      <li
+        key={item.title}
+        className="nav-item">
+        <a
+          className="nav-link"
+          rel="noopener noreferrer"
+          href={item.link}
+          >
+          {item.title}
+        </a>
+      </li>
+    )
+  
+    createNavItems = () => (
+      items.map(this.createNavItem)
+    )
+  
+    render() {
+    
+        return (
+            <ul className={'categories-proyects'}>
+                 {this.createNavItems()}
+            </ul>
+        );
     }
-
-    this.props.updateFilters(Array.from(this.selectedCategoryes));
-  }
-
-  createCategory = (label) => (
-    <Category
-        classes="form-check"
-        label={label}
-        handleCategoryChange={this.toggleCategory}
-        key={label}
-    />
-  )
-
-  createCategoryes = () => (
-    sublevel_id.map(this.createCategory)
-  )
-
-  render() {
-    return (
-      <div className="filters">
-        <h4 className="title">Categories:</h4>
-        <div className="box-categories">
-          {this.createCategoryes()}
-        </div>
-      </div>
-    );
-  }
 }
-
-Categories.propTypes = {
-  updateFilters: PropTypes.func.isRequired,
-  filters: PropTypes.array,
-}
-
-const mapStateToProps = state => ({
-  filters: state.filters.items,
-})
-
-export default connect(mapStateToProps, { updateFilters })(Categories);
+ 
+export default Categories;
