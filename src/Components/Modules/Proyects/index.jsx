@@ -9,6 +9,27 @@ import Categories from './Categories';
 
 // Assets 
 import './Proyects.scss';
+import banner from "./../../../Assets/images/banner-avianca.jpg";
+
+
+const dataCategories = [
+  // {
+  //   "title": "Dr Pepper",
+  //   "link": "/"
+  // },
+  // {
+  //   "title": "Coca-cola Zero",
+  //   "link": "/"
+  // },
+  // {
+  //   "title": "Coke Zero Sugar 400",
+  //   "link": "/"
+  // },
+  // {
+  //   "title": "Cherry Coke",
+  //   "link": "/"
+  // }
+];
 
 const dataGallery = [
   {
@@ -66,8 +87,9 @@ const dataGallery = [
 
 const dataBanner = [
   {
-    "title": 'coke',
-    "description": 'Use the sections you need, remove the ones you dont. Create gorgeous prototypes faster than ever!'
+    "title": 'Avianca',
+    "description": 'Use the sections you need, remove the ones you dont. Create gorgeous prototypes faster than ever!',
+    "banner": banner
   }
 ];
 
@@ -79,7 +101,7 @@ const Proyects = () => (
       <Col md="3" className="pt-4 bg-bloq">
         <div className="bloq">
           <h1 className="h4">Campañas</h1>
-          <Categories/>
+          <Categories dataCategories={dataCategories}/>
         </div>
       </Col>
       <Col md="9" xs="12" sm="12">

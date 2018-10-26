@@ -1,29 +1,16 @@
 // Dependences
 import * as React from 'react';
+import PropTypes from 'prop-types';
 
 // Assets 
 // import './Categories.scss'
 
-const items = [
-  {
-    "title": "Dr Pepper",
-    "link": "/"
-  },
-  {
-    "title": "Coca-cola Zero",
-    "link": "/"
-  },
-  {
-    "title": "Coke Zero Sugar 400",
-    "link": "/"
-  },
-  {
-    "title": "Cherry Coke",
-    "link": "/"
-  }
-];
  
 class Categories extends React.Component {
+
+    static propTypes = {
+      dataCategories: PropTypes.array.isRequired
+    }
 
     createNavItem = (item) => (
       <li
@@ -40,7 +27,7 @@ class Categories extends React.Component {
     )
   
     createNavItems = () => (
-      items.map(this.createNavItem)
+      this.props.dataCategories.map(this.createNavItem)
     )
   
     render() {

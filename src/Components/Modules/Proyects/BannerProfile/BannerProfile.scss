@@ -1,6 +1,19 @@
 @import "../../../../Assets/scss/components/_variables.scss";
 
 .BannerProfile {
+  position: relative;
+  &::after{
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background: rgba($black-bg, .3);
+    height: 100%;
+    width: 100%;
+    z-index: 0;
+  }
   .section {
     background-color: $light-gray;
     position: relative;
@@ -9,9 +22,11 @@
     padding: 5% 0;
   }
   .title{
+    position: relative;
     color: $white-color;
     margin-top: 1em;
     margin-bottom: 1em;
+    z-index: 2;
     &::after {
       border-color: $white-bg;
     }

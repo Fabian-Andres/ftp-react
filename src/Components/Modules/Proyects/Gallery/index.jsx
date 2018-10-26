@@ -27,16 +27,17 @@ class Gallery extends React.Component {
         const Item = ({ isHovering = false }) => (
             <div className="example__Item">
              isHovering: { isHovering ? 'true' : 'false' }
-             {this.props.val}
                 { isHovering ? (
-                    <Iframe url={dataIframe} 
-                    width="300px" 
-                    height="250px" 
-                    className="lorem" 
-                    display="block"
-                    position="relative"
-                    allowFullScreen
-                    />
+                    <div className="embed-responsive ">
+                        <Iframe url={dataIframe} 
+                        width="300px" 
+                        height="250px" 
+                        className="embed-responsive-item" 
+                        display="block"
+                        position="relative"
+                        allowFullScreen
+                        />
+                    </div> 
                 ) : (
                     <div></div>
                 ) }
@@ -56,11 +57,11 @@ class Gallery extends React.Component {
             return (
                 <Col md={columns} sm="6" xs="6" key={i}>
                  <ReactHoverObserver
-                className="example__observer"
-                hoverDelayInMs={200}
-                hoverOffDelayInMs={300}
-                >
-                <Item val="hola"/>
+                    className="element-gallery"
+                    hoverDelayInMs={200}
+                    hoverOffDelayInMs={300}
+                    >
+                    <Item val="hola"/>
                 </ReactHoverObserver>
                     <div className="element-gallery ">   
                         <img className="element-image" src={src} alt={name} title={name} width="100%"/>

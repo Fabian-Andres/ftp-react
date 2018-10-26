@@ -5,7 +5,6 @@ import { Container, Row, Col } from 'reactstrap';
 
 // Assets
 import './BannerProfile.scss';
-import ramdomImg from './../../../../Assets/images/banner-coke.jpg';
 
 
 class BannerProfile extends React.Component {
@@ -15,13 +14,13 @@ class BannerProfile extends React.Component {
 
   render() {
     const { dataBannerProfile } = this.props;
-    const { title } = dataBannerProfile[0];
+    const { title, banner } = dataBannerProfile[0];
     return(
       <section className="BannerProfile" id="content-4">
-        <div className="section" style={ { backgroundImage: 'url(' + ramdomImg + ')' } }>
+        <div className="section" style={ { backgroundImage: 'url(' + banner + ')' } }>
           <Container>
               <Row>
-                <Col md="9" className="ml-auto mr-auto">
+                <Col md="10" className="ml-auto mr-auto">
                   <h2 className="title">{title}</h2>
                 </Col>
               </Row>
